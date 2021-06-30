@@ -1,0 +1,155 @@
+{
+    "results": [
+      {
+        "gender": "female",
+        "name": {
+          "title": "ms",
+          "first": "natalie",
+          "last": "walker"
+        },
+        "email": "natalie.walker@example.com",
+        "id": {
+          "name": "",
+          "value": null
+        },
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/women/52.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/women/52.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/women/52.jpg"
+        }
+      },
+      {
+        "gender": "female",
+        "name": {
+          "title": "mrs",
+          "first": "francine",
+          "last": "da luz"
+        },
+        "email": "francine.daluz@example.com",
+        "id": {
+          "name": "",
+          "value": null
+        },
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/women/94.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/women/94.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/women/94.jpg"
+        }
+      },
+      {
+        "gender": "male",
+        "name": {
+          "title": "mr",
+          "first": "craig",
+          "last": "fowler"
+        },
+        "email": "craig.fowler@example.com",
+        "id": {
+          "name": "NINO",
+          "value": "XZ 11 03 60 O"
+        },
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/men/73.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/men/73.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/men/73.jpg"
+        }
+      },
+      {
+        "gender": "female",
+        "name": {
+          "title": "miss",
+          "first": "mary",
+          "last": "white"
+        },
+        "email": "mary.white@example.com",
+        "id": {
+          "name": "PPS",
+          "value": "2225975T"
+        },
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/women/90.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/women/90.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/women/90.jpg"
+        }
+      },
+      {
+        "gender": "female",
+        "name": {
+          "title": "mrs",
+          "first": "lizaine",
+          "last": "pinto"
+        },
+        "email": "lizaine.pinto@example.com",
+        "id": {
+          "name": "",
+          "value": null
+        },
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/women/44.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/women/44.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/women/44.jpg"
+        }
+      },
+      {
+        "gender": "male",
+        "name": {
+          "title": "mr",
+          "first": "samuel",
+          "last": "pesola"
+        },
+        "email": "samuel.pesola@example.com",
+        "id": {
+          "name": "HETU",
+          "value": "NaNNA615undefined"
+        },
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/men/0.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/men/0.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/men/0.jpg"
+        }
+      },
+      {
+        "gender": "male",
+        "name": {
+          "title": "mr",
+          "first": "علی",
+          "last": "سهيلي راد"
+        },
+        "email": "علی.سهيليراد@example.com",
+        "id": {
+          "name": "",
+          "value": null
+        },
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/men/61.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/men/61.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/men/61.jpg"
+        }
+      },
+      {
+        "gender": "female",
+        "name": {
+          "title": "ms",
+          "first": "gloria",
+          "last": "leon"
+        },
+        "email": "gloria.leon@example.com",
+        "id": {
+          "name": "DNI",
+          "value": "92774983-P"
+        },
+        "picture": {
+          "large": "https://randomuser.me/api/portraits/women/78.jpg",
+          "medium": "https://randomuser.me/api/portraits/med/women/78.jpg",
+          "thumbnail": "https://randomuser.me/api/portraits/thumb/women/78.jpg"
+        }
+      }
+    ],
+    "info": {
+      "seed": "0766f30121d40c96",
+      "results": 8,
+      "page": 1,
+      "version": "1.2"
+    }
+  }
+  
