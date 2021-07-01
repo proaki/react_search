@@ -1,7 +1,7 @@
 .person {
   padding: 15px 10px 15px 10px;
   margin: 25px 0 25px 0;
-  background: #fafafa;
+  background: #CEF9DC;
   transition: all 0.3s linear;
   border-radius: 20px;
   text-align: center;
@@ -19,7 +19,7 @@
 .person h5 {
   text-transform: capitalize;
   margin: 0.5rem 0;
-  color: #03a9f4;
+  color: #FF6928;
 }
 .person p {
   text-justify: auto;
