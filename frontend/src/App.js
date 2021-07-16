@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import {DataSearch, ReactiveBase, ReactiveList, ResultList, SelectedFilters} from '@appbaseio/reactivesearch';
 import './App.css';
 import './SteamSearch.css'
+import SignIn from './signin';
+
 
 const { ResultListWrapper } = ReactiveList;
 
 class App extends Component {
     render() {
+        
         return (
             <div className="main-container">
                 <ReactiveBase
@@ -76,6 +80,7 @@ class App extends Component {
                                                     }}
                                                 />
                                                 <ResultList.Description>
+                                                  <p className="headerImage">${item.HeaderImage}</p>
                                                   <p className="releaseDate">${item.ReleaseDate}</p>
                                                   <p className="price">$${item.PriceInitial}</p>
                                                 </ResultList.Description>
