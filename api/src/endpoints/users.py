@@ -98,7 +98,6 @@ def put_one_user(user: UserUpdate, db: Session = Depends(DBC.get_session)):
     except Exception as err:
         raise Exception(f"Failed to update user: {err}")
 
-
 @router.delete("/users/id/{user_mail}", response_model=UserDelete)
 def delete_one_user_by_id(user_mail: str, db: Session = Depends(DBC.get_session)):
     """
