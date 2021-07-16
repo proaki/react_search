@@ -1,8 +1,10 @@
 version: '3.7'
 
 services:
+  
   frontend:
     container_name: frontend
+    restart: always
     build: 
         context: ./frontend
         dockerfile: Dockerfile-frontend
@@ -12,4 +14,62 @@ services:
     ports:
       - 3000:3000
     environment:
-      - CHOKIDAR_USEPOLLING=true
+        CHOKIDAR_USEPOLLING: 'true'
+        ENV: 'development'
+
+  api:
+    container_name: api
+    restart: always
+    build:
+        context: ./api
+        dockerfile: Dockerfile-api
+    environment:
+        ENV: 'development'
+    ports:
+        - 80:80
+    depends_on:
+        - database
+
+  database:
+    image: postgres
+    container_name: "postgresql-database"
+    restart: always
+    environment:
+        - POSTGRES_DB=data
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+    volumes:
+        - $PWD/tests/test_files:/docker-entrypoint-initdb.d
+        - db_volume:/var/lib/postgresql
+    ports:
+        - 5432:5432
+  
+  elasticsearch:
+    container_name: es-container
+    build:
+        context: .
+        dockerfile: Dockerfile-elastic
+    networks:
+      - es-net
+    ports:
+      - 9200:9200
+
+  kibana:
+    container_name: kb-condocker-compose up -d clienttainer
+    image: docker.elastic.co/kibana/kibana:7.11.0
+    environment:
+      - ELASTICSEARCH_HOSTS=http://es-container:9200
+    networks:
+      - es-net
+    depends_on:
+      - elasticsearch
+    ports:
+      - 5601:5601
+
+networks:
+  es-net:
+    driver: bridge
+
+volumes:
+  db_volume: {}
+  
