@@ -1,3 +1,4 @@
+from typing import Optional
 from pydantic import BaseModel
 
 
@@ -27,6 +28,7 @@ class UserUpdate(BaseModel):
     """
     Fields information needed for Update
     """
+    id: Optional[str]
     name: str
     mail: str
     password: str
@@ -36,4 +38,5 @@ class UserDelete(BaseModel):
     """
     Fields information needed for Delete
     """
-    id: str
+    id: Optional[str]
+    mail: str

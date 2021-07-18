@@ -7,7 +7,7 @@ from sqlalchemy.sql import func
 YoutubeBaseTable = declarative_base()
 
 
-class UserModel(YoutubeBaseTable):
+class UserTable(YoutubeBaseTable):
     """
     Define User database table ORM model
     """
