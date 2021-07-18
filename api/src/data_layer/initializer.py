@@ -10,8 +10,7 @@ from src.settings import load_config
 from src.data_layer.base import DBConnector
 from src.data_layer.db_upgrade import DBUpgrade
 from src.utils.common_logger import logger
-from src.models.db_models import UserModel, YoutubeBaseTable
-
+from src.schema.tables import YoutubeBaseTable
 
 
 class DBInitializer:
@@ -33,7 +32,6 @@ class DBInitializer:
                 self.BaseTable._add_table(table_name, table.schema, table)
 
         self.engine = self.DBC.engine
-
 
     def check_database_exist(self):
         """

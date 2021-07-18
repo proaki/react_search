@@ -4,7 +4,6 @@ sys.path.insert(0, os.getcwd())
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy_utils import database_exists, create_database
 from src.utils.custom_error_handlers import DBError
 from src.utils.common_logger import logger
