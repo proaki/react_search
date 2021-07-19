@@ -26,7 +26,7 @@ services:
     environment:
         ENV: 'development'
     ports:
-        - 80:80
+        - 5000:5000
     depends_on:
         - database
 
@@ -39,11 +39,10 @@ services:
         - POSTGRES_USER=postgres
         - POSTGRES_PASSWORD=postgres
     volumes:
-        - $PWD/tests/test_files:/docker-entrypoint-initdb.d
         - db_volume:/var/lib/postgresql
     ports:
         - 5432:5432
-  
+
   elasticsearch:
     container_name: es-container
     build:
@@ -72,4 +71,4 @@ networks:
 
 volumes:
   db_volume: {}
-  
+

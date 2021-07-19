@@ -22,6 +22,7 @@ class App extends Component {
       }
 
     render() {
+        
         return (
             <div className="main-container">
                 <ReactiveBase
@@ -308,6 +309,7 @@ class App extends Component {
                                                     }}
                                                 />
                                                 <ResultList.Description>
+                                                  <p className="headerImage">${item.HeaderImage}</p>
                                                   <p className="releaseDate">${item.ReleaseDate}</p>
                                                   <p className="price">$${item.PriceInitial}</p>
                                                 </ResultList.Description>
