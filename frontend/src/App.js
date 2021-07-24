@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {DataSearch, ReactiveBase, ReactiveList, ResultList, SelectedFilters, MultiList, SingleRange, RangeSlider, MultiDataList, DateRange} from '@appbaseio/reactivesearch';
+import {DataSearch, ReactiveBase, ReactiveList, ResultList, SelectedFilters, /*MultiList,*/ SingleRange, RangeSlider, MultiDataList, DateRange} from '@appbaseio/reactivesearch';
 import './SteamSearch.css';
 
 const { ResultListWrapper } = ReactiveList;
@@ -17,7 +17,7 @@ class App extends Component {
       handleClick() {
         this.setState({
           isClicked: !this.state.isClicked,
-          message: this.state.isClicked ? "🔬 Show Filters" : "🎬 Show Movies"
+          message: this.state.isClicked ? "🔬 Show Filters" : "🎮 Show Games"
         });
       }
 
@@ -38,7 +38,7 @@ class App extends Component {
                                 titleColor: '#c7d5e0',
                                 textColor: '#c7d5e0',
                                 backgroundColor: '#212121',
-                                primaryColor: '#2B475E',
+                                primaryColor: '#CC9900',
                             }
                         }
                     }
@@ -70,193 +70,157 @@ class App extends Component {
                                         <i className="fa fa-pied-piper-alt" /> Genres{" "}
                                     </b>
                                 </div>
-                                
-                                <MultiList
+
+                                <MultiDataList
                                     componentId="genres-list"
-                                    dataField="genres_data.raw"
+                                    // const Genres = 
+                                    // {[
+                                    //     "GenreIsAction", "GenreIsAdventure", "GenreIsCasual", "GenreIsEarlyAccess", "GenreIsFreeToPlay", "GenreIsIndie", "GenreIsMassivelyMultiplayer", "GenreIsNonGame", "GenreIsRacing", "GenreIsRPG", "GenreIsSimulation", "GenreIsSports", "GenreIsStrategy"
+                                    // ]}
+                                    // dataField="Genres"
+
+                                    dataField="GenreIs.*"
+                                    
                                     className="genres-filter"
-                                    size={20}
-                                    sortBy="asc"
+                                    size={100}
                                     queryFormat="or"
                                     selectAllLabel="All Genres"
-                                    showCheckbox={true}
-                                    showCount={true}
-                                    showSearch={true}
-                                    placeholder="Search for a Genre"
-                                    react={{          
+                                    placeholder="Search for a genre"     
+                                    react={{
                                         and: [
-                                            "mainSearch",
-                                            "results",
+                                            "title",
                                             "date-filter",
                                             "RangeSlider",
-                                            "language-list",
-                                            "revenue-list"
+                                            "price-list",
+                                            "resultLists"
                                         ]
-                                    }}          
+                                        }}                               
+                                    data={[
+                                        {
+                                            label: "Action",
+                                            value: "GenreIsAction"
+                                        },
+                                        {
+                                            label: "Adventure",
+                                            value: "GenreIsAdventure"
+                                        },
+                                        {
+                                            label: "Casual",
+                                            value: "GenreIsCasual"
+                                        },
+                                        {
+                                            label: "EarlyAccess",
+                                            value: "GenreIsEarlyAccess"
+                                        },
+                                        {
+                                            label: "FreeToPlay",
+                                            value: "GenreIsFreeToPlay"
+                                        },
+                                        {
+                                            label: "Indie",
+                                            value: "GenreIsIndie"
+                                        },
+                                        {
+                                            label: "MassivelyMultiplayer",
+                                            value: "GenreIsMassivelyMultiplayer"
+                                        },
+                                        {
+                                            label: "NonGame",
+                                            value: "GenreIsNonGame"
+                                        },
+                                        {
+                                            label: "Racing",
+                                            value: "GenreIsRacing"
+                                        },
+                                        {
+                                            label: "RPG",
+                                            value: "GenreIsRPG"
+                                        },
+                                        {
+                                            label: "Simulation",
+                                            value: "GenreIsSimulation"
+                                        },
+                                        {
+                                            label: "Sports",
+                                            value: "GenreIsSports"
+                                        },
+                                        {
+                                            label: "Strategy",
+                                            value: "GenreIsStrategy"
+                                        },
+                                    ]}
                                     showFilter={true}
-                                    filterLabel="Genre"
-                                    URLParams={false} 
-                                    innerClass={{ 
+                                    showCount={true}
+                                    URLParams={false}
+                                    innerClass={{
                                         label: "list-item",
-                                        input: "list-input"
-                                    }}                    
-                                />
-                                <hr className="blue" />
+                                        input: "input"
+                                    }}
+                                />  
+
+                                <hr className="blue" />                             
 
 
                                 <div className="filter-heading center">
                                     <b>
                                         {" "}
-                                        <i className="fa fa-dollar" /> Revenue{" "}
+                                        <i className="fa fa-dollar" /> PriceFinal{" "}
                                     </b>
                                 </div>
                                 <SingleRange
-                                    componentId="revenue-list"
-                                    dataField="ran_revenue"
-                                    className="revenue-filter"
+                                    componentId="price-list"
+                                    dataField="PriceFinal"
+                                    className="price-filter"
                                     data={[
-                                    { start: 0, end: 1000, label: "< 1M" },
-                                    { start: 1000, end: 10000, label: "1M-10M" },
-                                    { start: 10000, end: 500000, label: "10M-500M" },
-                                    { start: 500000, end: 1000000, label: "500M-1B" },
-                                    { start: 1000000, end: 10000000, label: "> 1B" }
+                                        { start: 0.00, end: 5.00, label: "~ $5" },
+                                        { start: 5.00, end: 10.00, label: "$5 - $10" },
+                                        { start: 10.00, end: 50.00, label: "$10 - $50" },
+                                        { start: 50.00, end: 100.00, label: "$50 - $100" },
+                                        { start: 100.00, end: 500.00, label: "$100 ~" }
                                     ]}
                                     showRadio={true}
                                     showFilter={true}
-                                    filterLabel="Revenue"
                                     URLParams={false}
                                     innerClass={{
-                                    label: "revenue-label",
-                                    radio: "revenue-radio"
+                                        label: "price-label",
+                                        radio: "price-radio"
                                     }}
                                 />                                
                                 <hr className="blue" />
 
                                 <div className="filter-heading center">
                                     <b>
-                                        <i className="fa fa-star" /> Ratings
+                                        <i className="fa fa-star" /> Reccomend
+                                        (Only:100~1000👍)
                                     </b>
                                 </div>
                                 <RangeSlider
                                     componentId="RangeSlider"
-                                    dataField="vote_average"
-                                    className="review-filter"
+                                    dataField="RecommendationCount"
+                                    className="range-slider"
                                     range={{
-                                    start: 0,
-                                    end: 10
+                                        start: 100,
+                                        end: 1000
                                     }}
                                     rangeLabels={{
-                                    start: "0",
-                                    end: "10"
+                                        start: "Umm...",
+                                        end: "So Good!"
                                     }}
                                     react={{
-                                    and: [
-                                        "mainSearch",
-                                        "results",
-                                        "language-list",
-                                        "date-Filter",
-                                        "genres-list",
-                                        "revenue-list"
-                                    ]
+                                        and: [
+                                            "title",
+                                            "date-filter",
+                                            "genres-list",
+                                            "price-list",
+                                            "resultLists",
+                                        ]
+                                    }}
+                                    innerClass={{                                        
+                                        label: "range-label"
                                     }}
                                 />
                                 <hr className="blue" />
-
-                                <div className="filter-heading center">
-                                    <b>
-                                        {" "}
-                                        <i className="fa fa-language" /> Languages{" "}
-                                    </b>
-                                </div>
-                                <MultiDataList
-                                    componentId="language-list"
-                                    dataField="original_language.raw"
-                                    className="language-filter"
-                                    size={100}
-                                    sortBy="asc"
-                                    queryFormat="or"
-                                    selectAllLabel="All Languages"
-                                    showCheckbox={true}
-                                    showSearch={true}
-                                    placeholder="Search for a language"
-                                    react={{
-                                    and: [
-                                        "mainSearch",
-                                        "results",
-                                        "date-filter",
-                                        "RangeSlider",
-                                        "genres-list",
-                                        "revenue-list"
-                                    ]
-                                    }}
-                                    data={[
-                                    {
-                                        label: "English",
-                                        value: "English"
-                                    },
-                                    {
-                                        label: "Chinese",
-                                        value: "Chinese"
-                                    },
-                                    {
-                                        label: "Turkish",
-                                        value: "Turkish"
-                                    },
-                                    {
-                                        label: "Swedish",
-                                        value: "Swedish"
-                                    },
-                                    {
-                                        label: "Russian",
-                                        value: "Russian"
-                                    },
-                                    {
-                                        label: "Portuguese",
-                                        value: "Portuguese"
-                                    },
-                                    {
-                                        label: "Korean",
-                                        value: "Korean"
-                                    },
-                                    {
-                                        label: "Japanese",
-                                        value: "Japanese"
-                                    },
-                                    {
-                                        label: "Italian",
-                                        value: "Italian"
-                                    },
-                                    {
-                                        label: "Hindi",
-                                        value: "Hindi"
-                                    },
-                                    {
-                                        label: "French",
-                                        value: "French"
-                                    },
-                                    {
-                                        label: "Finnish",
-                                        value: "Finnish"
-                                    },
-                                    {
-                                        label: "Spanish",
-                                        value: "Spanish"
-                                    },
-                                    {
-                                        label: "Deutsch",
-                                        value: "Deutsch"
-                                    }
-                                    ]}
-                                    showFilter={true}
-                                    filterLabel="Language"
-                                    URLParams={false}
-                                    innerClass={{
-                                    label: "list-item",
-                                    input: "list-input"
-                                    }}
-                                />
-                                <hr className="blue" />
-
+                             
                                 <div className="filter-heading center">
                                     <b>
                                         {" "}
@@ -265,67 +229,80 @@ class App extends Component {
                                 </div>
                                 <DateRange
                                     componentId="date-filter"
-                                    dataField="release_date"
-                                    className="datePicker"
+                                    dataField="ReleaseDate"
+                                    className="datePicker"                                    
+                                    // initialMonth={new Date('2007-01-01')}
                                 />
-
-
-
                             </div>
 
-                    <ReactiveList
-                        componentId="resultLists"
-                        dataField="ResponseName"
-                        size={25}
-                        pagination={true}
-                        react={{
-                            "and": ["title"]
-                        }}
-                        sortOptions={[
-                                {label: "Best Match", dataField: "_score", sortBy: "desc"},
-                                {label: "Lowest Price", dataField: "PriceInitial", sortBy: "asc"},
-                                {label: "Highest Price", dataField: "PriceInitial", sortBy: "desc"},
-                        ]}
-                        className="result-list"
-                        innerClass={{
-                            resultsInfo: "resultsInfo",
-                            resultStats: "resultStats",
-                        }}
-                    >
-                        
-                        {({data}) => (
-                            <ResultListWrapper>
-                                {
-                                    data.map(item => (
-                                        <ResultList key={item._id}
-                                                    href={`https://store.steampowered.com/app/${item.ResponseID}`}
-                                                    className="listItem"
-                                        >
-                                            <ResultList.Image className="image" src={item.HeaderImage}/>
-                                            <ResultList.Content>
-                                                <ResultList.Title
-                                                    dangerouslySetInnerHTML={{
-                                                        __html: item.ResponseName
-                                                    }}
-                                                />
-                                                <ResultList.Description>
-                                                  <p className="headerImage">${item.HeaderImage}</p>
-                                                  <p className="releaseDate">${item.ReleaseDate}</p>
-                                                  <p className="price">$${item.PriceInitial}</p>
-                                                </ResultList.Description>
-                                            </ResultList.Content>
-                                        </ResultList>
-                                    ))
+                            <div
+                                className={
+                                    this.state.isClicked
+                                    ? "result-container-optional"
+                                    : "result-container"
                                 }
-                            </ResultListWrapper>
-                        )}
-                    </ReactiveList>
-                    <button
-                        className="toggle-button"
-                        onClick={this.handleClick.bind(this)}
-                        >
-                        {this.state.message}
-                    </button>
+                            >                          
+                                <ReactiveList
+                                    defaultQuery={() => ({ track_total_hits: true })}
+                                    componentId="resultLists"
+                                    dataField="ResponseName"
+                                    size={25}
+                                    pagination={true}
+                                    react={{
+                                        "and": [
+                                            "title",
+                                            "price-list",
+                                            "genres-list",
+                                            "RangeSlider",
+                                            "date-filter",
+                                        ]
+                                    }}
+                                    sortOptions={[
+                                            {label: "Best Match", dataField: "RecommendationCount", sortBy: "desc"},
+                                            {label: "Lowest Price", dataField: "PriceInitial", sortBy: "asc"},
+                                            {label: "Highest Price", dataField: "PriceInitial", sortBy: "desc"},
+                                    ]}
+                                    className="result-list"
+                                    innerClass={{
+                                        resultsInfo: "resultsInfo",
+                                        resultStats: "resultStats",
+                                    }}
+                                >
+                                    
+                                    {({data}) => (
+                                        <ResultListWrapper>
+                                            {
+                                                data.map(item => (
+                                                    <ResultList key={item._id}
+                                                                href={`https://store.steampowered.com/app/${item.ResponseID}`}
+                                                                className="listItem"
+                                                    >
+                                                        <ResultList.Image className="image" src={item.HeaderImage}/>
+                                                        <ResultList.Content>
+                                                            <ResultList.Title
+                                                                dangerouslySetInnerHTML={{
+                                                                    __html: item.ResponseName
+                                                                }}
+                                                            />
+                                                            <ResultList.Description>
+                                                            {/* <p className="headerImage">${item.HeaderImage}</p> */}
+                                                            <p className="releaseDate">{item.ReleaseDate}</p>
+                                                            <p className="price">${item.PriceInitial}</p>
+                                                            </ResultList.Description>
+                                                        </ResultList.Content>
+                                                    </ResultList>
+                                                ))
+                                            }
+                                        </ResultListWrapper>
+                                    )}
+                                </ReactiveList>
+                            </div>
+                        <button
+                            className="toggle-button"
+                            onClick={this.handleClick.bind(this)}
+                            >
+                            {this.state.message}
+                        </button>
                     </div>
                 </ReactiveBase>
             </div>
