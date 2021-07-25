@@ -73,13 +73,8 @@ class App extends Component {
 
                                 <MultiDataList
                                     componentId="genres-list"
-                                    // const Genres = 
-                                    // {[
-                                    //     "GenreIsAction", "GenreIsAdventure", "GenreIsCasual", "GenreIsEarlyAccess", "GenreIsFreeToPlay", "GenreIsIndie", "GenreIsMassivelyMultiplayer", "GenreIsNonGame", "GenreIsRacing", "GenreIsRPG", "GenreIsSimulation", "GenreIsSports", "GenreIsStrategy"
-                                    // ]}
-                                    // dataField="Genres"
 
-                                    dataField="GenreIs.*"
+                                    dataField="Genre"
                                     
                                     className="genres-filter"
                                     size={100}
@@ -98,55 +93,55 @@ class App extends Component {
                                     data={[
                                         {
                                             label: "Action",
-                                            value: "GenreIsAction"
+                                            value: "Action"
                                         },
                                         {
                                             label: "Adventure",
-                                            value: "GenreIsAdventure"
+                                            value: "Adventure"
                                         },
                                         {
                                             label: "Casual",
-                                            value: "GenreIsCasual"
+                                            value: "Casual"
                                         },
                                         {
                                             label: "EarlyAccess",
-                                            value: "GenreIsEarlyAccess"
+                                            value: "EarlyAccess"
                                         },
                                         {
                                             label: "FreeToPlay",
-                                            value: "GenreIsFreeToPlay"
+                                            value: "FreeToPlay"
                                         },
                                         {
                                             label: "Indie",
-                                            value: "GenreIsIndie"
+                                            value: "Indie"
                                         },
                                         {
                                             label: "MassivelyMultiplayer",
-                                            value: "GenreIsMassivelyMultiplayer"
+                                            value: "MassivelyMultiplayer"
                                         },
                                         {
                                             label: "NonGame",
-                                            value: "GenreIsNonGame"
+                                            value: "NonGame"
                                         },
                                         {
                                             label: "Racing",
-                                            value: "GenreIsRacing"
+                                            value: "Racing"
                                         },
                                         {
                                             label: "RPG",
-                                            value: "GenreIsRPG"
+                                            value: "RPG"
                                         },
                                         {
                                             label: "Simulation",
-                                            value: "GenreIsSimulation"
+                                            value: "Simulation"
                                         },
                                         {
                                             label: "Sports",
-                                            value: "GenreIsSports"
+                                            value: "Sports"
                                         },
                                         {
                                             label: "Strategy",
-                                            value: "GenreIsStrategy"
+                                            value: "Strategy"
                                         },
                                     ]}
                                     showFilter={true}
@@ -230,8 +225,7 @@ class App extends Component {
                                 <DateRange
                                     componentId="date-filter"
                                     dataField="ReleaseDate"
-                                    className="datePicker"                                    
-                                    // initialMonth={new Date('2007-01-01')}
+                                    className="datePicker"
                                 />
                             </div>
 
@@ -285,7 +279,6 @@ class App extends Component {
                                                                 }}
                                                             />
                                                             <ResultList.Description>
-                                                            {/* <p className="headerImage">${item.HeaderImage}</p> */}
                                                             <p className="releaseDate">{item.ReleaseDate}</p>
                                                             <p className="price">${item.PriceInitial}</p>
                                                             </ResultList.Description>
