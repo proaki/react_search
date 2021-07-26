@@ -71,4 +71,3 @@ networks:
 
 volumes:
   db_volume: {}
-  
