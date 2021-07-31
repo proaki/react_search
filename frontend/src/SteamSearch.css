@@ -134,6 +134,11 @@ hr {
   color: #000;
 }
 
+
+.src {
+  border-radius: 50px;
+}
+
 .toggle-button {
   display: none;
   position: fixed;

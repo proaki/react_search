@@ -1,27 +1,29 @@
-import React, {Component} from 'react';
-import {DataSearch, ReactiveBase, ReactiveList, ResultList, SelectedFilters, /*MultiList,*/ SingleRange, RangeSlider, MultiDataList, DateRange} from '@appbaseio/reactivesearch';
+import React, {useState} from 'react';
+import {DataSearch, ReactiveBase, ReactiveList, ResultList, SelectedFilters, SingleRange, RangeSlider, MultiDataList, DateRange} from '@appbaseio/reactivesearch';
 import './SteamSearch.css';
+import reactStringReplace from "react-string-replace";
+import 校長 from "./img/zoomロン２.jpg";
+
+const ItemList = ["http://localhost:4000"];
+const regExp = /(https?:\/\/\S+)/g;
+
 
 const { ResultListWrapper } = ReactiveList;
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-    
-        this.state = {
-          isClicked: false,
-          message: "🔬Show Filters"
-        };
-      }
-    
-      handleClick() {
-        this.setState({
-          isClicked: !this.state.isClicked,
-          message: this.state.isClicked ? "🔬 Show Filters" : "🎮 Show Games"
-        });
-      }
+const App = () => {
+    const [isClicked, setIsClicked] = useState(false);
+    const [message, setMessage] = useState("🔬Show Filters");
+    // const [linked, setLinked] = useState();
 
-    render() {
+    
+      const handleClick = () => {        
+        setIsClicked(!isClicked)
+        setMessage(isClicked ? "🔬 Show Filters" : "🎮 Show Games")     
+      };
+
+    //   const handleClick2 = () => {        
+    //       setLinked("./chat-bot/chat-bot/src/App.jsx")
+    //   }
         
         return (
             <div className="main-container">
@@ -61,7 +63,7 @@ class App extends Component {
                     <div className="sub-container">
                             <div
                                 className={
-                                this.state.isClicked ? "left-bar-optional" : "left-bar"
+                                isClicked ? "left-bar-optional" : "left-bar"
                                 }   
                             >
                                 <div className="filter-heading center">
@@ -227,13 +229,38 @@ class App extends Component {
                                     dataField="ReleaseDate"
                                     className="datePicker"
                                 />
+                                <hr className="blue" />
+
+                                <div className="filter-heading center">
+                                    <b>
+                                        {""}
+                                        <i className="fa fa-pied-piper-alt" /> Chat-Bot{" "}
+                                    </b>
+
+
+
+                                    <div className="chat-box">
+                                        {ItemList.map((item) => {
+                                        return (
+                                            <div>
+                                                {reactStringReplace(item, regExp, (match, i) => (
+                                                    <a className="a" href={match}>
+                                                        <img className="src" src={校長} width="100" height="100"/>
+                                                    </a>
+                                                ))}
+                                            </div>
+                                        )
+                                        })}
+                                    </div>                                    
+
+                                </div>                
+                                
+
                             </div>
 
                             <div
                                 className={
-                                    this.state.isClicked
-                                    ? "result-container-optional"
-                                    : "result-container"
+                                    isClicked ? "result-container-optional" : "result-container"
                                 }
                             >                          
                                 <ReactiveList
@@ -292,15 +319,15 @@ class App extends Component {
                             </div>
                         <button
                             className="toggle-button"
-                            onClick={this.handleClick.bind(this)}
+                            onClick={handleClick}
                             >
-                            {this.state.message}
+                            {message}
                         </button>
                     </div>
                 </ReactiveBase>
             </div>
         );
     }
-}
+
 
 export default App;
