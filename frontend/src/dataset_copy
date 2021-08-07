@@ -1,0 +1,50 @@
+{
+    "init": {
+        "answers": [
+            {"content": "ゲームを探したい", "nextId": "search_game"},
+            {"content": "ゲーム仲間を探したい", "nextId": "friend"},
+            {"content": "ゲーム実況を見る", "nextId": "game_play"},
+            {"content": "会員になりたい", "nextId": "add_user"}
+        ],
+        "question": "やあハリー、何をお探しかな？"
+    },
+    "search_game": {
+        "answers": [
+            {"content": "おすすめ１を見る", "nextId": "https://store.steampowered.com/app/339200"},
+            {"content": "おすすめ２を見る", "nextId": "https://store.steampowered.com/app/413420/2/"},
+            {"content": "おすすめ３を見る", "nextId": "https://store.steampowered.com/app/249590/Teslagrad/"},
+            {"content": "その他", "nextId": "other"}
+        ],
+        "question": "わしのおすすめ。"
+    },
+    "other": {
+        "answers": [
+            {"content": "問い合わせる", "nextId": "contact"},
+            {"content": "最初の質問に戻る", "nextId": "init"}
+        ],
+        "question": "その他については、スネイプ先生に聞くのじゃ。"
+    },
+    "friend": {
+        "answers": [
+            {"content": "ゲームアカウントを教える", "nextId": "contact"},
+            {"content": "最初の質問に戻る", "nextId": "init"}
+        ],
+        "question": "一緒にゲームしようかの。"
+    },
+    "game_play": {
+        "answers": [
+            {"content": "YouTubeで{実況者①}の動画を見る", "nextId": "https://www.youtube.com/channel/UC2GuoutVyegg6PUK88lLpjw"},
+            {"content": "YouTubeで{実況者②}の動画を見る", "nextId": "https://www.youtube.com/channel/UCSFCh5NL4qXrAy9u-u2lX3g"},
+            {"content": "YouTubeで{実況者③}の動画を見る", "nextId": "https://www.youtube.com/channel/UCrAq8h6Q3xGxzUC-84YD9PQ"},
+            {"content": "最初の質問に戻る", "nextId": "init"}
+        ],
+        "question": "ホグワーツで人気のゲーム実況者じゃ。"
+    },
+    "add_user": {
+        "answers": [
+            {"content": "ユーザー登録する", "nextId": "user"},
+            {"content": "最初の質問に戻る", "nextId": "init"}
+        ],
+        "question": "会員登録はこちらから。"
+    }
+  }

@@ -1,6 +1,3 @@
-[submodule "chat-bot"]
-	path = frontend/src/chat-bot_demo
-	url = https://github.com/proaki/chat-bot_demo.git
-[submodule "frontend/src/chat-bot_demo"]
-	path = frontend/src/chat-bot_demo
-	url = https://github.com/proaki/chat-bot_demo.git
+[submodule "frontend/src/chatbot"]
+	path = frontend/src/chatbot
+	url = https://github.com/proaki/chatbot.git
